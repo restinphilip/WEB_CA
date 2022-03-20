@@ -1,0 +1,13 @@
+.book-back{
+    background-image: url('images/book-back.jpg');
+}
+.login-head{
+    margin-top: 20%;
+    color: white;
+}
+.login-form{
+    width:50%;
+    margin:auto;
+    display:block;
+}
+
