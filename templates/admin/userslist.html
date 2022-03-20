@@ -1,0 +1,48 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Users List{% endblock %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function update_user(userid)
+    {
+        location.href="{{url_for('updateuser')}}?userid="+userid;
+    }
+    function delete_user(userid)
+    {
+        location.href="{{url_for('deleteuser')}}?userid="+userid;
+    }
+    function issue_book(user_id)
+    {
+      location.href="{{url_for('issuebook')}}?user_id="+user_id;
+    }
+</script>
+<div class="container mt-3">
+    <h2 class="text-center">Users List</h2>      
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for user in users %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <a class="btn btn-primary" onclick="update_user({{user.id}})">Update</a>
+                    <a class="btn btn-primary" onclick="delete_user({{user.id}})">Delete</a>
+                    <a class="btn btn-primary" onclick="issue_book({{user.id}})">Issue Book</a>
+                </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endblock %}

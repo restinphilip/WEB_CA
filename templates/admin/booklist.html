@@ -1,0 +1,45 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Book List{% endblock %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function update_book(bookid)
+    {
+        location.href="{{url_for('updatebook')}}?bookid="+bookid;
+    }
+    function delete_book(bookid)
+    {
+        location.href="{{url_for('deletebook')}}?bookid="+bookid;
+    }
+</script>
+<div class="container mt-3">
+    <h2 class="text-center">Book List</h2>      
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Book Name</th>
+          <th>Book Description</th>
+          <th>Book Count</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for book in books %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.description}}</td>
+                <td>{{book.count}}</td>
+                <td>
+                    <a class="btn btn-primary" onclick="update_book({{book.id}})">Update</a>
+                    <a class="btn btn-primary" onclick="delete_book({{book.id}})">Delete</a>
+                </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

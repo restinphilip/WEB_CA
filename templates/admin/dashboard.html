@@ -1,0 +1,20 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Dashboard{% endblock %}
+{% block content %}
+
+<div class="container">
+    {% if msg|length %}
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <p class="text-center">{{msg}}</p>
+        </div>
+    {% endif %}
+</div>
+<h2 class="text-center">Tasks</h2>
+<a class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('addbook')}}">Add a Book</a><br>
+<a class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('booklist')}}">Books List</a><br>
+<a  class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('adduser')}}">Add a User</a><br>
+<a  class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('userslist')}}">Users List</a><br>
+<a  class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('requestbooklist')}}">Request Book List</a>
+
+{% endblock %}

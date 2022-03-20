@@ -1,0 +1,25 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Return Book{% endblock %}
+{% block content %}
+
+<div class="container mt-3">
+    <h2 class="text-center">Add User</h2>
+      <form action="{{ url_for('returnbooks') }}" method="post">
+        <div class="mb-3 mt-3">
+          <label for="email">Book Name</label>
+          <input type="text" class="form-control" value="{{getbooknamebyid(issuedata.book_id)}}" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="pwd">User Email</label>
+          <input type="email" class="form-control" value="{{getuseremailbyid(issuedata.user_id)}}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="pwd">Fine</label>
+            <input type="text" class="form-control" value="{{getfinebyid(issuedata.id)}}" readonly> 
+        </div>
+        <input type="hidden" name="id" value="{{issuedata.id}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+{% endblock %}

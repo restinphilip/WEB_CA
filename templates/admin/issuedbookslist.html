@@ -1,0 +1,42 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Users List{% endblock %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function returnbook(id)
+  {
+    location.href="{{url_for('returnbook')}}?id="+id;
+  }
+</script>
+<div class="container mt-3">
+    <h2 class="text-center">Issued Books</h2>      
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Book Name</th>
+          <th>User Email</th>
+          <th>Issed Date</th>
+          <th>Fine</th>
+          <th>Return</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for issued in issuedbooks %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{getbooknamebyid(issued.book_id)}}</td>
+                <td>{{getuseremailbyid(issued.user_id)}}</td>
+                <td>{{issued.date}}</td>
+                <td>{{getfinebyid(issued.id)}}</td>
+                <td>
+                    <a class="btn btn-primary" onclick="returnbook({{issued.id}})">Return</a>
+                </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table> 
+  </div>
+
+  {% endblock %}

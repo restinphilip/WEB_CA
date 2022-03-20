@@ -1,0 +1,37 @@
+{%extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %} 
+
+<style>
+    thead{
+        background-color: white;
+        color: black;
+    }
+    tbody{
+        background-color: white;
+        color: black;
+    }
+</style>
+<div class="container mt-3">
+    <h2 class="text-center" style="color:white;">Issued Books List</h2>   
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Book Name</th>
+          <th>Issued Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for issuedbook in issuedbooks %}
+          <tr>
+              <td>{{loop.index}}</td>
+              <td>{{getbooknamebyid(issuedbook.book_id)}}</td>
+              <td>{{issuedbook.date}}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+{% endblock %}

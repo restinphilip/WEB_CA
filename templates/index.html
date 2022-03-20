@@ -1,0 +1,16 @@
+{%extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %} 
+
+<div class="container">
+	{% if msg|length %}
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <p class="text-center">{{msg}}</p>
+        </div>
+    {% endif %}
+	<h1 class="text-center" style="color:white;">Tasks</h1>
+	<a class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('bookrequest')}}">Issue Book Request</a><br>
+	<a class="btn btn-primary" style="margin: auto;display: block;margin-top: 3%;width: 50%;" href="{{url_for('issuedbooklist')}}">Issued Books List</a><br>
+</div>
+{% endblock %}

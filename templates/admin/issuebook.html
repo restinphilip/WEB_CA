@@ -1,0 +1,22 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Dashboard{% endblock %}
+{% block content %}
+
+<div class="container mt-3">
+    <h2 class="text-center">Add Book</h2>
+    <form action="{{ url_for('issuebooks') }}" method="post">
+        <div class="form-group">
+            <label for="email">Book Name</label>
+            <select class="form-control" name="book_id">
+                <option>Select Book</option>
+                {% for book in books %}
+                    <option value="{{book.id}}">{{book.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="hidden" name="user_id" value="{{userid}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock%}

@@ -1,0 +1,15 @@
+{%extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+	<h2 class="text-center login-head">Login</h2>
+	<form class="login-form" action="{{ url_for('login') }}" method="post">
+		<div class="msg">{{ msg }}</div>
+		<input id="username" name="useremail" type="text" placeholder="Enter Your Username" class="form-control"/><br>
+		<input id="password" name="password" type="password" placeholder="Enter Your Password" class="form-control"/><br>
+		<input type="submit" class="btn btn-success" style="width:100%;" value="Sign In"></br></br>
+	</form>
+	<p class="bottom">Dont't have an account? <a class="bottom" href="{{url_for('register')}}"> Sign Up here</a></p>
+</div>
+
+{% endblock %}

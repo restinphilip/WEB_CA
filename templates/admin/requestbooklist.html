@@ -1,0 +1,43 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Users List{% endblock %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function accept(id)
+    {
+        location.href = "{{url_for('acceptrequest')}}?row_id="+id;
+    }
+    function reject(id)
+    {
+        location.href = "{{url_for('rejectrequest')}}?row_id="+id;
+    }
+</script>
+<div class="container mt-3">
+    <h2 class="text-center">Users List</h2>      
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Book Name</th>
+          <th>User Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for requestbook in requestbooks %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{getbooknamebyid(requestbook.book_id)}}</td>
+                <td>{{getuseremailbyid(requestbook.user_id)}}</td>
+                <td>
+                    <a class="btn btn-primary" onclick="accept({{requestbook.id}})">Accept</a>
+                    <a class="btn btn-primary" onclick="reject({{requestbook.id}})">Reject</a>
+                </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endblock %}

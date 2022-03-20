@@ -1,0 +1,24 @@
+{%extends "adminlayout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container mt-3">
+  {% if msg|length %}
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <p class="text-center">{{msg}}</p>
+    </div>
+  {% endif %}
+<h2 class="text-center">Login</h2>
+  <form action="{{ url_for('adlogin') }}" method="post">
+    <div class="mb-3 mt-3">
+      <label for="email">Username</label>
+      <input type="email" class="form-control" placeholder="Enter email" name="ademail">
+    </div>
+    <div class="mb-3">
+      <label for="pwd">Password</label>
+      <input type="password" class="form-control" placeholder="Enter password" name="adpswd">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Book List{% endblock %}
+{% block content %}
+<div class="container mt-3">
+    <h2 class="text-center">Update Book</h2>
+      <form action="{{ url_for('updatebooks') }}" method="post">
+        <div class="mb-3 mt-3">
+          <label for="email">Book Name</label>
+          <input type="text" class="form-control" placeholder="Enter book name" name="abname" value="{{bookdata.name}}">
+        </div>
+        <div class="mb-3">
+          <label for="pwd">Book Description</label>
+          <input type="text" class="form-control" placeholder="Enter book description" name="abdesc" value="{{bookdata.description}}">
+        </div>
+        <div class="mb-3">
+            <label for="pwd">Book Count</label>
+            <input type="number" class="form-control" placeholder="Enter book count" name="abcount" value="{{bookdata.count}}">
+          </div>
+          <input type="hidden" name="abid" value="{{bookdata.id}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+{% endblock %}

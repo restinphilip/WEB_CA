@@ -1,0 +1,25 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Book List{% endblock %}
+{% block content %}
+
+<div class="container mt-3">
+    <h2 class="text-center">Update user</h2>
+      <form action="{{ url_for('updateusers') }}" method="post">
+        <div class="mb-3 mt-3">
+          <label for="email">Username</label>
+          <input type="text" class="form-control" placeholder="Enter username" name="aupname" value="{{userdata.username}}" required>
+        </div>
+        <div class="mb-3">
+          <label for="pwd">Email</label>
+          <input type="email" class="form-control" placeholder="Enter book email" name="aupemail" value="{{userdata.email}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="pwd">Password</label>
+            <input type="password" class="form-control" placeholder="Enter password" name="auppswd" required>
+          </div>
+          <input type="hidden" name="aupid" value="{{userdata.id}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    {% endblock %}

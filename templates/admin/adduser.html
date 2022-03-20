@@ -1,0 +1,24 @@
+{%extends "adminlayout.html" %}
+{% block title %}Admin | Add User{% endblock %}
+{% block content %}
+
+<div class="container mt-3">
+    <h2 class="text-center">Add User</h2>
+      <form action="{{ url_for('adduser') }}" method="post">
+        <div class="mb-3 mt-3">
+          <label for="email">Username</label>
+          <input type="text" class="form-control" placeholder="Enter username" name="auname">
+        </div>
+        <div class="mb-3">
+          <label for="pwd">Email</label>
+          <input type="email" class="form-control" placeholder="Enter email" name="auemail">
+        </div>
+        <div class="mb-3">
+            <label for="pwd">Password</label>
+            <input type="text" class="form-control" placeholder="Enter password" name="aupswd">
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+{% endblock %}
